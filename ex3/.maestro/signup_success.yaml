@@ -1,0 +1,20 @@
+appId: com.example.ex3App
+---
+- launchApp
+- tapOn: 'Username input'
+- inputText: 'Aoi'
+- tapOn: 'Password input'
+- inputText: 'pass'
+- runFlow:
+    when:
+      visible: 完了
+    commands:
+      - tapOn: 完了
+- runFlow:
+    when:
+      visible: done
+    commands:
+      - tapOn: done
+- tapOn: 'Mock Sign In / Sign Up'
+- tapOn: 'Sign up button'
+- assertVisible: 'Welcome, Aoi'

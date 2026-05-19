@@ -1,0 +1,49 @@
+appId: com.example.ex3App
+---
+- launchApp
+- runFlow:
+    when:
+      visible: Continue
+    commands:
+      - tapOn: Continue
+- runFlow:
+    when:
+      visible: 続ける
+    commands:
+      - tapOn: 続ける
+- tapOn: 'Username input'
+- inputText: 'Sora'
+- tapOn: 'Password input'
+- inputText: 'pass'
+- runFlow:
+    when:
+      visible: 完了
+    commands:
+      - tapOn: 完了
+- runFlow:
+    when:
+      visible: done
+    commands:
+      - tapOn: done
+- tapOn: 'Mock Sign In / Sign Up'
+- tapOn: 'Sign in button'
+- assertVisible: 'Welcome, Sora'
+- tapOn: 'India History Explorer button'
+- assertVisible: 'India History Explorer'
+- tapOn: 'Gupta Empire
+320-550 CE'
+- assertVisible: 'Kalidasa
+Sanskrit literary genius'
+- tapOn: 'Kalidasa
+Sanskrit literary genius'
+- assertVisible: 'Entry Details'
+- assertVisible: 'Sanskrit literary genius'
+- tapOn: 'Back button'
+- assertVisible: 'India History Explorer'
+- tapOn: 'Sort button
+Order: oldest first'
+- assertVisible: 'Sort button
+Order: newest first'
+- tapOn: 'Open account menu'
+- tapOn: 'Log out'
+- assertVisible: 'Mock Sign In / Sign Up'

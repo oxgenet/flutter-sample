@@ -1,0 +1,58 @@
+name: Android Build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        app:
+          - { name: main,  path: "."    }
+          - { name: ex1B,  path: "ex1B" }
+          - { name: ex2,   path: "ex2"  }
+          - { name: ex2A,  path: "ex2A" }
+          - { name: ex3,   path: "ex3"  }
+
+    name: Build ${{ matrix.app.name }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.41.6'
+          channel: 'stable'
+          cache: true
+
+      - name: Install dependencies
+        working-directory: ${{ matrix.app.path }}
+        run: flutter pub get
+
+      - name: Run tests
+        working-directory: ${{ matrix.app.path }}
+        run: flutter test
+
+      - name: Build debug APK
+        working-directory: ${{ matrix.app.path }}
+        run: flutter build apk --debug
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: apk-${{ matrix.app.name }}
+          path: ${{ matrix.app.path }}/build/app/outputs/flutter-apk/app-debug.apk
+          retention-days: 7

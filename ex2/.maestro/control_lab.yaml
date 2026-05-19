@@ -1,0 +1,14 @@
+appId: com.example.ex2App
+---
+- launchApp
+- tapOn:
+    point: '47%,42%'
+- tapOn: 'Advanced'
+- tapOn: 'Quiz'
+- tapOn: 'Agree to policy checkbox'
+- tapOn: 'Enable reminders switch'
+- tapOn: 'Increase confidence'
+- tapOn: 'Increase confidence'
+- tapOn: 'Timeline focus chip'
+- tapOn: 'Apply settings button'
+- assertVisible: 'Confidence: 60'

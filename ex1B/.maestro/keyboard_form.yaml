@@ -1,0 +1,40 @@
+appId: com.example.ex1bApp
+---
+- launchApp:
+    clearState: true
+- assertVisible: 'ex1B: Keyboard Input Form'
+
+- tapOn: 'Japanese input'
+- eraseText
+- inputText: ありす
+- tapOn: 'Status: empty'
+- tapOn: 'Convert to Kanji'
+- assertVisible: 'Status: converted ありす to 有栖'
+
+- tapOn: 'English input'
+- eraseText
+- inputText: alice
+
+- tapOn: 'Email input'
+- eraseText
+- inputText: 'alice@example.com'
+- runFlow:
+    when:
+      visible: done
+    commands:
+      - tapOn: done
+- runFlow:
+    when:
+      visible: 完了
+    commands:
+      - tapOn: 完了
+
+- tapOn: 'Submit'
+- assertVisible: 'Status: form submitted'
+- scrollUntilVisible:
+    element:
+      text: 'alice@example.com'
+    direction: DOWN
+- assertVisible: '有栖'
+- assertVisible: 'alice'
+- assertVisible: 'alice@example.com'

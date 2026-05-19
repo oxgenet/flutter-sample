@@ -1,0 +1,6 @@
+appId: com.example.maestroApp
+---
+- launchApp
+- assertVisible: 'Counter: 0'
+- tapOn: 'Increment counter button'
+- assertVisible: 'Counter: 1'

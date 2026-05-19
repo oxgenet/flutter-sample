@@ -1,0 +1,9 @@
+appId: com.example.maestroApp
+---
+- launchApp
+- takeScreenshot: ex1_01_launched
+- assertVisible: 'Counter: 0'
+- tapOn: 'Increment counter button'
+- takeScreenshot: ex1_02_tapped
+- assertVisible: 'Counter: 1'
+- takeScreenshot: ex1_03_passed

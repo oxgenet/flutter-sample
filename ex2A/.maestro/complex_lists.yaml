@@ -1,0 +1,20 @@
+appId: com.example.ex2aApp
+---
+- launchApp
+- assertVisible: 'ex2A: Dual List Lab'
+- assertVisible: 'Status: initialized'
+- tapOn: 'board:Mughal Empire Board'
+- assertVisible: 'Status: selected Mughal Empire Board'
+- tapOn: 'item:Grand Trunk Road map'
+- assertVisible: 'Item editor panel'
+- tapOn: 'Mark done'
+- tapOn: 'Save and close'
+- assertVisible: 'Status: updated Grand Trunk Road map'
+- tapOn: 'Show done'
+- assertNotVisible: 'Grand Trunk Road map'
+- tapOn: 'Show done'
+- assertVisible: 'item:Grand Trunk Road map'
+- tapOn: 'Priority'
+- assertVisible: 'Status: sorted lower list by priority'
+- tapOn: 'High priority only'
+- assertNotVisible: "Akbar's Sulh-i-kul cost estimate"

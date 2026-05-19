@@ -1,0 +1,18 @@
+appId: com.example.ex2App
+---
+- launchApp
+- takeScreenshot: ex2_01_launched
+- tapOn:
+    point: '47%,42%'
+- tapOn: 'Advanced'
+- tapOn: 'Quiz'
+- takeScreenshot: ex2_02_selected_controls
+- tapOn: 'Agree to policy checkbox'
+- tapOn: 'Enable reminders switch'
+- tapOn: 'Increase confidence'
+- tapOn: 'Increase confidence'
+- tapOn: 'Timeline focus chip'
+- takeScreenshot: ex2_03_toggled
+- tapOn: 'Apply settings button'
+- assertVisible: 'Confidence: 60'
+- takeScreenshot: ex2_04_passed
